@@ -23,7 +23,18 @@ sort_values:
 	bge $s2, 97, lowercase_letters
 	bge $s2, 65, uppercase_letters
 	bge $s2, 48, numbers	
+loop:
+	#loops through the string
+	addi $t3, $t3, 1
+	lb $s2, ($t3)
+	j check_characters
 
+numbers:
+	#checks the character type and converts it  
+	ble $s2, 48, loop
+	sub $s2, $s2, 48
+	add $s3, $s3, $s2
+	j loop
 			
 	
 							

@@ -53,6 +53,19 @@ lowercase_letters:
 	sub $s2, $s2, 87
 	add $s3, $s3, $s2
 	j loop	
+	
+output: 
+	#outputs the decimal addition total 
+	li $v0, 4
+	la $a0, enter
+	syscall
+	
+	li $v0, 1
+	move $a0, $s3
+	syscall
+	
+	li $v0, 10
+	syscall	
 			
 	
 							

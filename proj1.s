@@ -1,11 +1,20 @@
 #PROGRAM: Hello, World!
-.data
-string: .asciiz "Enter a string of 10 characters:"
+.data 
+	string: .space 11
+	enter: .asciiz "\n"
 .text
+
 main:
-li $v0, 8 #used to take input from a user
-la $a0, string #used to save the string in the variable
-syscall #used to print the string
-loop: #Decided to use a loop instead of a counter 
-#using to test github
-Exit:
+	#reads input from the user
+	li $v0, 8 
+	la $a0, string 
+	li $a1, 11 
+	syscall
+saves_input:
+	#moves input into an accessible register
+	move $t3, $a0
+	lb $s2, ($t3)
+
+			
+	
+							
